@@ -1,0 +1,28 @@
+[
+  {
+    "model": "diseases.disease",
+    "pk": 1,
+    "fields": {
+      "name": "Early Blight",
+      "crop": "Tomato",
+      "label": "Tomato___Early_blight",
+      "is_healthy": false,
+      "symptoms": "Dark concentric spots on older leaves, yellowing around lesions.",
+      "causes": "Fungus Alternaria solani, favored by warm, humid conditions.",
+      "treatment": "Remove infected leaves, apply appropriate fungicide, ensure crop rotation and spacing for airflow."
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 2,
+    "fields": {
+      "name": "Healthy",
+      "crop": "Tomato",
+      "label": "Tomato___healthy",
+      "is_healthy": true,
+      "symptoms": "",
+      "causes": "",
+      "treatment": ""
+    }
+  }
+]

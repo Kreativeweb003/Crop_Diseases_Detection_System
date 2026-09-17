@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnose a crop &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <h1>Diagnose a crop</h1>
+  <p class="text-soft">Upload a clear photo of a leaf. The system checks it against known disease patterns and returns a diagnosis with recommended management steps.</p>
+
+  <div class="panel">
+    <form method="post" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+
+      <div class="field field-file">
+        <label for="{{ form.image.id_for_label }}">Leaf photo</label>
+        {{ form.image }}
+        <p class="upload-preview">JPG or PNG, up to 5MB. Fill the frame with a single leaf in good light.</p>
+        {% if form.image.errors %}
+          <ul class="errorlist">
+            {% for error in form.image.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="btn">Run diagnosis</button>
+    </form>
+  </div>
+{% endblock %}

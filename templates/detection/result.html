@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnosis result &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <h1>Diagnosis</h1>
+
+  <div class="panel">
+    <div class="report-head">
+      <div>
+        <h2>
+          {% if prediction.disease %}
+            {{ prediction.disease.crop }} &mdash; {{ prediction.disease.name }}
+          {% else %}
+            No confident match
+          {% endif %}
+        </h2>
+        {% if prediction.disease %}
+          {% if prediction.disease.is_healthy %}
+            <span class="tag tag--healthy">Healthy</span>
+          {% else %}
+            <span class="tag tag--disease">Disease detected</span>
+          {% endif %}
+        {% endif %}
+      </div>
+      <span class="text-soft">{{ prediction.created_at|date:"M j, Y, g:i A" }}</span>
+    </div>
+
+    <div class="report-image">
+      <img src="{{ prediction.image.url }}" alt="Uploaded leaf photo">
+    </div>
+
+    <div class="confidence-meter">
+      <div class="confidence-meter__label">
+        <span>Model confidence</span>
+        <span>{{ prediction.confidence|floatformat:0 }}%</span>
+      </div>
+      <div class="confidence-meter__track">
+        <div class="confidence-meter__fill" style="width: {{ prediction.confidence|floatformat:0 }}%;"></div>
+      </div>
+    </div>
+
+    {% if prediction.disease and not prediction.disease.is_healthy %}
+      <hr class="rule">
+
+      {% if prediction.disease.symptoms %}
+        <div class="report-section">
+          <h3>Symptoms</h3>
+          <p>{{ prediction.disease.symptoms }}</p>
+        </div>
+      {% endif %}
+
+      {% if prediction.disease.causes %}
+        <div class="report-section">
+          <h3>Cause</h3>
+          <p>{{ prediction.disease.causes }}</p>
+        </div>
+      {% endif %}
+
+      {% if prediction.disease.treatment %}
+        <div class="report-section">
+          <h3>Recommended management</h3>
+          <p>{{ prediction.disease.treatment }}</p>
+        </div>
+      {% endif %}
+
+      <a href="{% url 'diseases:disease_detail' prediction.disease.pk %}" class="btn btn-secondary">Full disease guide</a>
+    {% elif not prediction.disease %}
+      <p class="text-soft">The model couldn't match this image to a known class with enough confidence. Try a clearer, closer photo of a single leaf.</p>
+    {% endif %}
+  </div>
+
+  <p><a href="{% url 'detection:upload_image' %}">&larr; Diagnose another photo</a></p>
+{% endblock %}

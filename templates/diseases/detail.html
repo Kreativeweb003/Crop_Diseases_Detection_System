@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ disease.name }} &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'diseases:disease_list' %}">&larr; Disease guide</a></p>
+
+  <h1>{{ disease.crop }} &mdash; {{ disease.name }}</h1>
+  {% if disease.is_healthy %}
+    <span class="tag tag--healthy">Healthy</span>
+  {% else %}
+    <span class="tag tag--disease">Disease</span>
+  {% endif %}
+
+  {% if disease.image %}
+    <div class="disease-detail__image">
+      <img src="{{ disease.image.url }}" alt="Example of {{ disease.name }} on {{ disease.crop }}">
+    </div>
+  {% endif %}
+
+  <div class="panel">
+    {% if disease.symptoms %}
+      <div class="report-section">
+        <h3>Symptoms</h3>
+        <p>{{ disease.symptoms }}</p>
+      </div>
+    {% endif %}
+
+    {% if disease.causes %}
+      <div class="report-section">
+        <h3>Cause</h3>
+        <p>{{ disease.causes }}</p>
+      </div>
+    {% endif %}
+
+    {% if disease.treatment %}
+      <div class="report-section">
+        <h3>Recommended management</h3>
+        <p>{{ disease.treatment }}</p>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

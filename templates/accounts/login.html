@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Log in &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <h1>Log in</h1>
+
+  <div class="panel">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="field">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <ul class="errorlist">
+              {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn">Log in</button>
+    </form>
+  </div>
+
+  <p class="text-soft">Need an account? <a href="{% url 'accounts:register' %}">Register</a></p>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Crop Disease Detection{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="wordmark" href="{% url 'detection:upload_image' %}">Crop Disease Detection</a>
+      <nav class="site-nav">
+        <a href="{% url 'detection:upload_image' %}">Diagnose</a>
+        <a href="{% url 'diseases:disease_list' %}">Disease guide</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'detection:prediction_history' %}">History</a>
+          <a href="{% url 'accounts:profile' %}">Profile</a>
+          <a href="{% url 'accounts:logout' %}">Log out</a>
+        {% else %}
+          <a href="{% url 'accounts:login' %}">Log in</a>
+          <a href="{% url 'accounts:register' %}">Register</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    Crop Disease Detection &mdash; diagnostic results are a guide, not a substitute for an agronomist.
+  </footer>
+
+</body>
+</html>

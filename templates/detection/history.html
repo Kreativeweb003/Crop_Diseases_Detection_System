@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Your history &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <h1>Your diagnosis history</h1>
+
+  {% if predictions %}
+    <div class="panel">
+      <ul class="entry-list">
+        {% for prediction in predictions %}
+          <li>
+            <span>
+              <a href="{% url 'detection:view_result' prediction.pk %}">
+                {% if prediction.disease %}
+                  {{ prediction.disease.crop }} &mdash; {{ prediction.disease.name }}
+                {% else %}
+                  No confident match
+                {% endif %}
+              </a>
+              {% if prediction.disease %}
+                {% if prediction.disease.is_healthy %}
+                  <span class="tag tag--healthy">Healthy</span>
+                {% else %}
+                  <span class="tag tag--disease">Disease</span>
+                {% endif %}
+              {% endif %}
+            </span>
+            <span class="entry-meta">{{ prediction.created_at|date:"M j, Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>No diagnoses yet. <a href="{% url 'detection:upload_image' %}">Upload a leaf photo</a> to get started.</p>
+    </div>
+  {% endif %}
+{% endblock %}

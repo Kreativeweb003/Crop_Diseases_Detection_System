@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Disease guide &mdash; Crop Disease Detection{% endblock %}
+
+{% block content %}
+  <h1>Disease guide</h1>
+  <p class="text-soft">Reference information for the diseases this system can recognize.</p>
+
+  {% if crops %}
+    <div class="filter-row">
+      <a href="{% url 'diseases:disease_list' %}" class="{% if not request.GET.crop %}is-active{% endif %}">All crops</a>
+      {% for crop in crops %}
+        <a href="?crop={{ crop }}" class="{% if request.GET.crop == crop %}is-active{% endif %}">{{ crop }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if diseases %}
+    <div class="panel">
+      <ul class="entry-list">
+        {% for disease in diseases %}
+          <li>
+            <a href="{% url 'diseases:disease_detail' disease.pk %}">{{ disease.crop }} &mdash; {{ disease.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>No diseases match this filter yet.</p>
+    </div>
+  {% endif %}
+{% endblock %}
