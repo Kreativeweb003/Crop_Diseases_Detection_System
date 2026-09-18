@@ -3,13 +3,15 @@
     "model": "diseases.disease",
     "pk": 1,
     "fields": {
-      "name": "Early Blight",
-      "crop": "Tomato",
-      "label": "Tomato___Early_blight",
+      "name": "Bacterial Spot",
+      "crop": "Pepper (Bell)",
+      "label": "Pepper__bell___Bacterial_spot",
       "is_healthy": false,
-      "symptoms": "Dark concentric spots on older leaves, yellowing around lesions.",
-      "causes": "Fungus Alternaria solani, favored by warm, humid conditions.",
-      "treatment": "Remove infected leaves, apply appropriate fungicide, ensure crop rotation and spacing for airflow."
+      "symptoms": "Small, water-soaked spots on leaves that turn dark brown to black with a yellow halo. Spots may also appear on fruit as raised, scab-like lesions. Severe infections cause leaf drop and reduced yield.",
+      "causes": "Bacterium Xanthomonas campestris pv. vesicatoria, spread by splashing water, rain, and contaminated tools or hands. Favored by warm, humid, wet conditions.",
+      "treatment": "Remove and destroy infected plant debris. Apply copper-based bactericides preventively. Avoid overhead irrigation and working with plants while wet. Rotate crops and use certified disease-free seed.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
     }
   },
   {
@@ -17,12 +19,209 @@
     "pk": 2,
     "fields": {
       "name": "Healthy",
-      "crop": "Tomato",
-      "label": "Tomato___healthy",
+      "crop": "Pepper (Bell)",
+      "label": "Pepper__bell___healthy",
       "is_healthy": true,
       "symptoms": "",
       "causes": "",
-      "treatment": ""
+      "treatment": "",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 3,
+    "fields": {
+      "name": "Early Blight",
+      "crop": "Potato",
+      "label": "Potato___Early_blight",
+      "is_healthy": false,
+      "symptoms": "Dark brown to black spots with concentric rings (a target-like pattern) on older, lower leaves first. Yellowing around lesions, and leaves may eventually die and drop.",
+      "causes": "Fungus Alternaria solani, favored by warm temperatures, high humidity, and plant stress such as poor nutrition or drought.",
+      "treatment": "Remove infected foliage promptly. Apply fungicides such as chlorothalonil or copper-based products at first sign of disease. Practice crop rotation, ensure adequate plant spacing for airflow, and avoid overhead watering.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 4,
+    "fields": {
+      "name": "Late Blight",
+      "crop": "Potato",
+      "label": "Potato___Late_blight",
+      "is_healthy": false,
+      "symptoms": "Large, irregular, water-soaked greenish-black lesions on leaves, often starting at leaf edges. White fungal growth may appear on the underside of leaves in humid conditions. Can spread rapidly and destroy a crop within days.",
+      "causes": "Oomycete Phytophthora infestans, spreads fastest in cool, wet, humid weather. This is the pathogen responsible for the Irish Potato Famine.",
+      "treatment": "Remove and destroy infected plants immediately to prevent spread. Apply protective fungicides preventively during high-risk weather. Ensure good drainage and airflow, avoid overhead irrigation, and use resistant varieties where possible.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 5,
+    "fields": {
+      "name": "Healthy",
+      "crop": "Potato",
+      "label": "Potato___healthy",
+      "is_healthy": true,
+      "symptoms": "",
+      "causes": "",
+      "treatment": "",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 6,
+    "fields": {
+      "name": "Bacterial Spot",
+      "crop": "Tomato",
+      "label": "Tomato_Bacterial_spot",
+      "is_healthy": false,
+      "symptoms": "Small, dark, greasy-looking spots on leaves, stems, and fruit. Leaf spots may have a yellow halo and can merge, causing leaves to yellow and drop. Fruit develops raised, scabby spots.",
+      "causes": "Bacterium Xanthomonas species, spread by splashing water, wind-driven rain, and contaminated tools. Thrives in warm, humid, wet conditions.",
+      "treatment": "Remove and destroy infected plant material. Apply copper-based bactericides preventively. Avoid overhead watering and handling wet plants. Rotate crops and use disease-free seed or transplants.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 7,
+    "fields": {
+      "name": "Early Blight",
+      "crop": "Tomato",
+      "label": "Tomato_Early_blight",
+      "is_healthy": false,
+      "symptoms": "Dark brown spots with concentric rings forming a target pattern, usually starting on older, lower leaves. Yellowing around lesions, leaf drop, and can also affect stems and fruit.",
+      "causes": "Fungus Alternaria solani, favored by warm, humid weather and plant stress such as poor nutrition or overcrowding.",
+      "treatment": "Remove infected leaves promptly and stake plants to improve airflow. Apply fungicide at first symptoms. Mulch to prevent soil splash onto leaves, rotate crops, and avoid overhead irrigation.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 8,
+    "fields": {
+      "name": "Late Blight",
+      "crop": "Tomato",
+      "label": "Tomato_Late_blight",
+      "is_healthy": false,
+      "symptoms": "Large, irregular, water-soaked dark lesions on leaves and stems, often with pale green to yellow borders. White fuzzy fungal growth may appear on leaf undersides in humid weather. Fruit develops firm, dark, greasy-looking blotches.",
+      "causes": "Oomycete Phytophthora infestans, spreads rapidly in cool, wet, humid conditions.",
+      "treatment": "Remove and destroy infected plants immediately. Apply protective fungicides before disease pressure builds, especially in humid weather. Improve airflow through spacing and staking, avoid overhead watering, and use resistant varieties where available.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 9,
+    "fields": {
+      "name": "Leaf Mold",
+      "crop": "Tomato",
+      "label": "Tomato_Leaf_Mold",
+      "is_healthy": false,
+      "symptoms": "Pale green to yellow spots on the upper leaf surface, with olive-green to grayish-purple fuzzy mold visible on the underside. Leaves may curl, wither, and drop in severe cases.",
+      "causes": "Fungus Passalora fulva (formerly Fulvia fulva), favored by high humidity and poor air circulation, common in greenhouse or densely planted conditions.",
+      "treatment": "Improve ventilation and reduce humidity around plants. Remove and destroy infected leaves. Apply fungicide if the infection is spreading. Avoid overhead watering and space plants adequately.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 10,
+    "fields": {
+      "name": "Septoria Leaf Spot",
+      "crop": "Tomato",
+      "label": "Tomato_Septoria_leaf_spot",
+      "is_healthy": false,
+      "symptoms": "Numerous small, circular spots with dark brown margins and lighter gray centers, usually starting on lower leaves. Tiny black specks (fungal fruiting bodies) may be visible in the center of spots. Severe infection causes significant leaf drop.",
+      "causes": "Fungus Septoria lycopersici, spread by splashing water and favored by warm, wet, humid conditions.",
+      "treatment": "Remove infected leaves and destroy fallen debris. Apply fungicide at first sign of spots. Mulch to reduce soil splash, avoid overhead watering, and rotate crops each season.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 11,
+    "fields": {
+      "name": "Spider Mites (Two-Spotted Spider Mite)",
+      "crop": "Tomato",
+      "label": "Tomato_Spider_mites_Two_spotted_spider_mite",
+      "is_healthy": false,
+      "symptoms": "Fine yellow or white speckling (stippling) on leaves, giving a bronzed or dusty appearance. Fine webbing may be visible on the underside of leaves and between stems in heavy infestations. Leaves can dry out and drop.",
+      "causes": "Infestation by the two-spotted spider mite (Tetranychus urticae), a tiny arachnid pest that thrives in hot, dry conditions and reproduces rapidly.",
+      "treatment": "Spray plants with water to dislodge mites, or apply insecticidal soap or horticultural oil, targeting the underside of leaves. Introduce natural predators such as predatory mites where feasible. Avoid excessive drought stress on plants.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 12,
+    "fields": {
+      "name": "Target Spot",
+      "crop": "Tomato",
+      "label": "Tomato__Target_Spot",
+      "is_healthy": false,
+      "symptoms": "Brown circular lesions with concentric rings, similar to early blight, appearing on leaves, stems, and fruit. Lesions can merge, causing large areas of blighted tissue and leaf drop.",
+      "causes": "Fungus Corynespora cassiicola, favored by warm temperatures, high humidity, and extended leaf wetness.",
+      "treatment": "Remove and destroy infected plant material. Apply fungicide at early signs of infection. Improve airflow through proper spacing and pruning, avoid overhead irrigation, and rotate crops.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 13,
+    "fields": {
+      "name": "Tomato Yellow Leaf Curl Virus",
+      "crop": "Tomato",
+      "label": "Tomato__Tomato_YellowLeaf__Curl_Virus",
+      "is_healthy": false,
+      "symptoms": "Upward curling and yellowing of leaves, stunted plant growth, and reduced fruit set. Leaves are often smaller than normal and may have a puckered appearance.",
+      "causes": "Tomato yellow leaf curl virus (TYLCV), transmitted by the whitefly (Bemisia tabaci). Cannot be spread by mechanical contact alone.",
+      "treatment": "No cure once infected — remove and destroy infected plants to reduce spread. Control whitefly populations with insecticidal soap, reflective mulches, or approved insecticides. Use resistant tomato varieties and insect-proof netting where possible.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 14,
+    "fields": {
+      "name": "Tomato Mosaic Virus",
+      "crop": "Tomato",
+      "label": "Tomato__Tomato_mosaic_virus",
+      "is_healthy": false,
+      "symptoms": "Mottled light and dark green mosaic pattern on leaves, leaf distortion or fern-like narrowing, stunted growth, and reduced or discolored fruit.",
+      "causes": "Tomato mosaic virus (ToMV), highly stable and spread mechanically through contaminated hands, tools, and plant-to-plant contact; can also persist in soil and plant debris.",
+      "treatment": "No cure once infected — remove and destroy infected plants. Disinfect tools and hands between handling plants. Avoid tobacco use near plants (a related virus source), and use certified virus-free seed and resistant varieties.",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "diseases.disease",
+    "pk": 15,
+    "fields": {
+      "name": "Healthy",
+      "crop": "Tomato",
+      "label": "Tomato_healthy",
+      "is_healthy": true,
+      "symptoms": "",
+      "causes": "",
+      "treatment": "",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z"
     }
   }
 ]
