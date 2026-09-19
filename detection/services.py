@@ -10,12 +10,12 @@ IMAGE_SIZE = (224, 224)  # MobileNetV2 default input size
 
 def preprocess_image(image_file):
     """Convert an uploaded image file into a MobileNet-ready array."""
+    image_file.seek(0)  # reset read position — Django's form validation already read this file once
     img = Image.open(image_file).convert("RGB")
     img = img.resize(IMAGE_SIZE)
     array = np.array(img)
     array = preprocess_input(array)
-    return np.expand_dims(array, axis=0)  # add batch dimension
-
+    return np.expand_dims(array, axis=0)
 
 def predict_disease(image_file):
     """
