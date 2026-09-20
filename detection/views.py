@@ -16,7 +16,7 @@ def upload_image(request):
 
             disease, confidence = predict_disease(request.FILES["image"])
             prediction.disease = disease
-            prediction.confidence = confidence
+            prediction.confidence = confidence * 100
             prediction.save()
 
             return redirect("detection:view_result", pk=prediction.pk)

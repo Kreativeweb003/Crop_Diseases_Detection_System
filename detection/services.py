@@ -18,17 +18,17 @@ def preprocess_image(image_file):
     return np.expand_dims(array, axis=0)
 
 def predict_disease(image_file):
-    """
-    Run the uploaded image through the trained model.
-    Returns (Disease instance or None, confidence float).
-    """
     model = get_model()
     processed = preprocess_image(image_file)
 
     predictions = model.predict(processed)[0]
+    print("RAW PREDICTIONS:", predictions)          # temporary debug
+    print("SUM:", predictions.sum())                 # temporary debug — should be ~1.0 for softmax output
+
     predicted_index = int(np.argmax(predictions))
     confidence = float(predictions[predicted_index])
     label = CLASS_LABELS[predicted_index]
+    print("PREDICTED LABEL:", label, "CONFIDENCE:", confidence)  # temporary debug
 
     disease = Disease.objects.filter(label=label).first()
     return disease, confidence
